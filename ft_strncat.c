@@ -1,25 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_strcat.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: equiana <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/05 21:36:36 by equiana           #+#    #+#             */
-/*   Updated: 2019/09/06 14:50:15 by equiana          ###   ########.fr       */
+/*   Created: 2019/07/08 20:37:39 by equiana           #+#    #+#             */
+/*   Updated: 2019/07/08 21:56:58 by equiana          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
-
-void ft_bzero(void *s, size_t n)
+char	*ft_strncat(char *dest, char *src, int nb)
 {
-	size_t i;
+	int i;
+	int count;
 
 	i = 0;
-	while (i < n)
+	count = 0;
+	while (dest[count] != '\0')
 	{
-		((char*)s)[i] = 0;
+		count++;
+	}
+	while ((src[i] != '\0') && i < nb)
+	{
+		dest[count] = src[i];
+		count++;
 		i++;
 	}
+	dest[count] = '\0';
+	return (dest);
 }

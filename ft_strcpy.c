@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_strcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: equiana <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/05 21:36:36 by equiana           #+#    #+#             */
-/*   Updated: 2019/09/06 14:50:15 by equiana          ###   ########.fr       */
+/*   Created: 2019/07/08 11:11:53 by equiana           #+#    #+#             */
+/*   Updated: 2019/07/08 13:51:37 by equiana          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
-
-void ft_bzero(void *s, size_t n)
+char	*ft_strcpy(char *dest, char *src)
 {
-	size_t i;
+	int i;
 
 	i = 0;
-	while (i < n)
+	while (src[i] != '\0')
 	{
-		((char*)s)[i] = 0;
+		dest[i] = src[i];
 		i++;
 	}
+	dest[i] = '\0';
+	return (dest);
 }

@@ -1,25 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: equiana <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/05 21:36:36 by equiana           #+#    #+#             */
-/*   Updated: 2019/09/06 14:50:15 by equiana          ###   ########.fr       */
+/*   Created: 2019/07/08 09:48:27 by equiana           #+#    #+#             */
+/*   Updated: 2019/07/08 17:17:32 by equiana          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
-
-void ft_bzero(void *s, size_t n)
+int	ft_atoi(char *str)
 {
-	size_t i;
+	int flag;
+	int num;
+	int i;
 
+	flag = 0;
+	num = 0;
 	i = 0;
-	while (i < n)
+	while ((str[i] == ' ') || (str[i] == '\t') || (str[i] == '\n'))
+		i++;
+	while ((str[i] == '\v') || (str[i] == '\f') || (str[i] == '\r'))
+		i++;
+	if (str[i] == '-')
+		flag = 1;
+	if ((str[i] == '-') || (str[i] == '+'))
+		i++;
+	while ((str[i] >= '0') && (str[i] <= '9'))
 	{
-		((char*)s)[i] = 0;
+		num = num * 10 + str[i] - '0';
 		i++;
 	}
+	if (flag == 1)
+		return (-num);
+	else
+		return (num);
 }

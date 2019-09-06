@@ -1,25 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: equiana <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/05 21:36:36 by equiana           #+#    #+#             */
-/*   Updated: 2019/09/06 14:50:15 by equiana          ###   ########.fr       */
+/*   Created: 2019/09/06 20:16:35 by equiana           #+#    #+#             */
+/*   Updated: 2019/09/06 20:25:43 by equiana          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
+#include <stdio.h>
 
-void ft_bzero(void *s, size_t n)
+char	*ft_strchr(const char *s, int c)
 {
-	size_t i;
+	char	el;
+	char	*ptr;
 
-	i = 0;
-	while (i < n)
+	el = (char)c;
+	ptr = s;
+	while (*ptr != '\0')
 	{
-		((char*)s)[i] = 0;
-		i++;
+		if (*ptr == el)
+			return (ptr);
+		ptr++;
 	}
+	if (c == '\0')
+		return (ptr);
+	return (NULL);
 }
